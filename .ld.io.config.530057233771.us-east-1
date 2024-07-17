@@ -1,0 +1,39 @@
+{
+    "Core": {
+        "FunctionName": "java_conflict_test",
+        "Runtime": "java21",
+        "Role": "arn:aws:iam::[LD-IO-ACCOUNT-NUMBER]:role/postman_lambda",
+        "Handler": "io.qe.ld.MyLambdaFunction::handleRequest",
+        "Description": "",
+        "Timeout": 3,
+        "MemorySize": 128,
+        "Layers": [],
+        "EphemeralStorage": {
+            "Size": 512
+        }
+    },
+    "Tags": {},
+    "RolePolicies": {
+        "Attached": [
+            {
+                "PolicyName": "AWSLambdaBasicExecutionRole",
+                "PolicyArn": "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": [
+                                "logs:CreateLogGroup",
+                                "logs:CreateLogStream",
+                                "logs:PutLogEvents"
+                            ],
+                            "Resource": "*"
+                        }
+                    ]
+                }
+            }
+        ],
+        "Inline": []
+    }
+}
